@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ShareController-->
+        <scene sceneID="uC9-aC-UyU">
+            <objects>
+                <viewController storyboardIdentifier="ShareController" id="rJ5-FA-Bcg" userLabel="ShareController" customClass="ShareController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lay-Oh-6L6"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Wv-nM-k0o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IxO-pn-wL9">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-8h-BLc" userLabel="shareImageView" customClass="CLShareView">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DJY-8h-BLc" firstAttribute="leading" secondItem="IxO-pn-wL9" secondAttribute="leading" id="Rgm-H5-x1X"/>
+                            <constraint firstAttribute="trailing" secondItem="DJY-8h-BLc" secondAttribute="trailing" id="Xu0-sL-jcw"/>
+                            <constraint firstItem="DJY-8h-BLc" firstAttribute="top" secondItem="lay-Oh-6L6" secondAttribute="bottom" id="Z2J-yP-JC6"/>
+                            <constraint firstItem="5Wv-nM-k0o" firstAttribute="top" secondItem="DJY-8h-BLc" secondAttribute="bottom" id="e3Y-XW-ohy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="shareImageView" destination="DJY-8h-BLc" id="tMg-tA-dlh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMk-OK-5VC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-374" y="-142"/>
+        </scene>
+    </scenes>
+</document>
