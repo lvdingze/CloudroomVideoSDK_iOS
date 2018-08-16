@@ -124,9 +124,6 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
     [self handleExit];
 }
 
-- (IBAction)testChangePage:(id)sender {
-    
-}
 //画笔响应
 - (IBAction)brushToolSizeBtnDidClick:(id)sender {
     UIButton *targetBtn = (UIButton*)sender;
@@ -322,10 +319,7 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
             NSString* wbKey = [NSString stringWithFormat:@"%d.%d",currrentPage.localID,currrentPage.termID];
             WhiteBoardModel* wbModel = [self.allWhiteBoardDict objectForKey:wbKey];
             CGSize curBoardSize = (CGSize){wbModel.whiteBoardBaseInfo.width, wbModel.whiteBoardBaseInfo.height};
-            _boardW.constant = [self getRealSize:curBoardSize].width;
-            _boardH.constant = [self getRealSize:curBoardSize].height;
-            [self.drawerView setRealW:[self getRealSize:curBoardSize].width];
-            [self.drawerView setRealH:[self getRealSize:curBoardSize].height];
+            [self changeDrawViewSize:curBoardSize];
             //保存当前key
             self.currentWbKey = wbKey;
         }
@@ -384,11 +378,7 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
     SubPageInfo *subPageInfo = board;
     //设置正确尺寸
     CGSize curBoardSize = (CGSize){subPageInfo.width, subPageInfo.height};
-    _boardW.constant = [self getRealSize:curBoardSize].width;
-    _boardH.constant = [self getRealSize:curBoardSize].height;
-    [self.drawerView setRealW:[self getRealSize:curBoardSize].width];
-    [self.drawerView setRealH:[self getRealSize:curBoardSize].height];
-    
+    [self changeDrawViewSize:curBoardSize];
     //保存新创建的白板
     NSString* wbKey = [NSString stringWithFormat:@"%d.%d",subPageInfo.boardID.localID,subPageInfo.boardID.termID];
     WhiteBoardModel* wbModel = [[WhiteBoardModel alloc]init];
@@ -407,16 +397,13 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
     NSString* wbKey = [NSString stringWithFormat:@"%d.%d",boardID.localID,boardID.termID];
     [self.allWhiteBoardDict removeObjectForKey:wbKey];
     [self.allWhilteBoardKey removeObject:wbKey];
+    [self.allPicToModelDict removeObjectForKey:self.drawerView.drawerModel.imgID];
     
     WhiteBoardModel* wbModel = [self.allWhiteBoardDict objectForKey:[self.allWhilteBoardKey lastObject]];
     self.drawerView.drawerModel = [wbModel.whiteBoardPageInfo objectForKey:[NSString stringWithFormat:@"%d",wbModel.whiteBoardBaseInfo.curPage]];
     
     CGSize curBoardSize = CGSizeMake(self.drawerView.drawerModel.curBoardSize.width, self.drawerView.drawerModel.curBoardSize.height);
-    _boardW.constant = [self getRealSize:curBoardSize].width;
-    _boardH.constant = [self getRealSize:curBoardSize].height;
-    
-    [self.drawerView setRealW:[self getRealSize:curBoardSize].width];
-    [self.drawerView setRealH:[self getRealSize:curBoardSize].height];
+    [self changeDrawViewSize:curBoardSize];
     
     if(![self.drawerView.drawerModel.imgID isEqualToString:@""])
     {
@@ -448,11 +435,7 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
     self.drawerView.drawerModel = [wbModel.whiteBoardPageInfo objectForKey:[NSString stringWithFormat:@"%d",wbModel.whiteBoardBaseInfo.curPage]];
     
     CGSize curBoardSize = CGSizeMake(self.drawerView.drawerModel.curBoardSize.width, self.drawerView.drawerModel.curBoardSize.height);
-    _boardW.constant = [self getRealSize:curBoardSize].width;
-    _boardH.constant = [self getRealSize:curBoardSize].height;
-  
-    [self.drawerView setRealW:[self getRealSize:curBoardSize].width];
-    [self.drawerView setRealH:[self getRealSize:curBoardSize].height];
+    [self changeDrawViewSize:curBoardSize];
 
     if(![self.drawerView.drawerModel.imgID isEqualToString:@""])
     {
@@ -473,7 +456,7 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
         
         NSDictionary *elementDict = (NSDictionary *)elementsAny;
         if (![[MeetingHelper shareInstance].nickname isEqualToString:operatorID]) {
-            [self.drawerView draw:elementDict];
+            [self.drawerView drawElement:elementDict];
         }else{
             //调整自己画的放在最后
             [self.drawerView changPathOrder];
@@ -528,6 +511,16 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
 }
 
 #pragma mark - private method
+-(void)changeDrawViewSize:(CGSize)size{
+    
+    _boardW.constant = [self getRealSize:size].width;
+    _boardH.constant = [self getRealSize:size].height;
+    [self.drawerView setRealW:[self getRealSize:size].width];
+    [self.drawerView setRealH:[self getRealSize:size].height];
+    NSLog(@"getRealSize %f",_showScale);
+    [self.drawerView setShowScale:_showScale];
+}
+
 -(NSString*)getWhileBoardImgPath:(SubPage*)subPage pageNo:(int)pageNo{
     
     NSString* wbKey = [NSString stringWithFormat:@"%d.%d",subPage.localID,subPage.termID];
@@ -719,12 +712,7 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
     SubPage *subPage = [cloudroomVideoMeeting createBoard:@"iOS board" width:size.width height:size.height pageCount:1];
     [cloudroomVideoMeeting initBoardPageDat:subPage boardPageNo:0 imgID:@"" elemets:@""];
     //设置正确尺寸
-    _boardW.constant = [self getRealSize:size].width;
-    _boardH.constant = [self getRealSize:size].height;
-    
-    [self.drawerView setRealW:[self getRealSize:size].width];
-    [self.drawerView setRealH:[self getRealSize:size].height];
-    
+    [self changeDrawViewSize:size];
     //保存对方创建的白板
     SubPageInfo* subPageInfo = [[SubPageInfo alloc]init];
     subPageInfo.boardID = subPage;
@@ -747,11 +735,11 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
     model.currentPage = subPageInfo.curPage;
     model.imgID = @"";
     model.bkImg = nil;
+    model.percent = 0;
     self.drawerView.drawerModel = model;
     
     //切换白板
     [cloudroomVideoMeeting switchToPage:MAINPAGE_WHITEBOARD subPage:subPage];
-    
     [wbModel.whiteBoardPageInfo setObject:model forKey:[NSString stringWithFormat:@"%d",model.currentPage]];
     [self.allWhiteBoardDict setObject:wbModel forKey:wbKey];
     [self.allWhilteBoardKey addObject:wbKey];
@@ -772,8 +760,6 @@ typedef NS_ENUM(NSUInteger, BrushToolType) {
         width = width;
         height = (int) (bwSize.height * dw);
     }
-    NSLog(@"getRealSize %f",_showScale);
-    [self.drawerView setShowScale:_showScale];
     return CGSizeMake(width, height);
 }
 #pragma mark - override

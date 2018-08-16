@@ -13,8 +13,6 @@
 @property (nonatomic, assign) NSInteger percent;/*图片进度*/
 @property (nonatomic, strong) UIImage* bkImg; /*背景图片*/
 @property (nonatomic, strong) NSMutableArray *allPointStringArray; /*初始化路径字符数据*/
--(void)clearData;
--(void)equal:(BKDrawerModel*) model;
 @end
 
 @class BKDrawer;
@@ -25,7 +23,7 @@
 @property (nonatomic, assign) NSInteger realH;
 @property (assign,nonatomic) CGFloat showScale;
 /*绘制图元*/
-- (void) draw:(NSDictionary*)element;
+- (void) drawElement:(NSDictionary*)element;
 /*删除图元*/
 -(void)deleteLine:(NSArray<NSString *> *)elementIDs;
 /*撤销图元*/

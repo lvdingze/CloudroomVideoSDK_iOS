@@ -5,37 +5,17 @@
 #import "MBProgressHUD+MF.h"
 
 @implementation BKDrawerModel
--(void)clearData{
-    [self.allLayerArray removeAllObjects];
-    [self.allPointStringArray removeAllObjects];
-}
--(void)equal:(BKDrawerModel*) model{
-    
-    self.lineW = model.lineW;
-    self.type = model.type;
-    self.curBoardSize = model.curBoardSize;
-    self.subPage = model.subPage;
-    self.allLayerArray = model.allLayerArray;
-    self.currentPage = model.currentPage;
-    self.color = model.color;
-    self.imgID = model.imgID;
-    self.percent = model.percent;
-    self.allPointStringArray = model.allPointStringArray;
-}
 @end
 
 @interface BKDrawer ()
 @property (nonatomic, strong) NSMutableArray *undoLayerArray;
-/** 当前绘制的路径 */
-@property (nonatomic, strong) BKPath *localPath;
-@property (nonatomic, strong) BKPath *remotePath;
+@property (nonatomic, strong) BKPath *localPath;/** 当前本地绘制的路径 */
+@property (nonatomic, strong) BKPath *remotePath;/** 当前远端绘制的路径 */
 @property (nonatomic, strong) BKShapeLayer *localLayer;
 @property (nonatomic, strong) BKShapeLayer *remotelayer;
 @property (nonatomic, strong) UIColor* remoteColor;
 @property (nonatomic, assign) NSInteger remoteLineW;
 @property (nonatomic, assign) DrawShapeType type; /**> 画笔类型 */
-
-
 @end
 
 @implementation BKDrawer
@@ -43,11 +23,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self commonSetup];
-    self.clipsToBounds = YES;
-    _localLineW = 2;
-    _remoteLineW = 2;
-    _type = PENCIL;
-    _showScale = 1.0f;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -58,7 +33,6 @@
     self.realW = self.bounds.size.width;
     self.realH = self.bounds.size.height;
     [self commonSetup];
-    self.clipsToBounds = YES;
     return self;
 }
 
@@ -71,7 +45,7 @@
     return _undoLayerArray;
 }
 #pragma mark - public method
-- (void) draw:(NSDictionary*)element{
+- (void) drawElement:(NSDictionary*)element{
     
     if([self.drawerModel.allLayerArray count] == 100)
     {
@@ -275,7 +249,6 @@
 
 -(void) drawDoc{
     
-    
     if(![self.drawerModel.imgID isEqualToString:@""])
     {
         if(self.drawerModel.bkImg == nil && self.drawerModel.percent == 100)
@@ -306,7 +279,7 @@
     [self.drawerModel.allPointStringArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSDictionary *element = (NSDictionary*)obj;
-        [self draw:element];
+        [self drawElement:element];
         
     }];
     
@@ -319,6 +292,12 @@
     self.drawerModel.lineW = 2.0;
     self.drawerModel.type = PENCIL;
     [self setBackgroundColor:[UIColor whiteColor]];
+    
+    self.clipsToBounds = YES;
+    _localLineW = 2;
+    _remoteLineW = 2;
+    _type = PENCIL;
+    _showScale = 1.0f;
 }
 
 /* 获取当前触摸点 */
@@ -387,7 +366,6 @@
 
 - (void)drawBegin:(CGPoint)point elementID:(NSString*)elementID{
 
-    CGFloat scale = [UIScreen mainScreen].scale;
     BKPath *path = [BKPath pathWithWidth:(self.remoteLineW * _showScale) sPoint:point type:_type];
     _remotePath = path;
 
