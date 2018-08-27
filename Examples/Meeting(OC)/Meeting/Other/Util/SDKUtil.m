@@ -107,15 +107,15 @@
     NSString *result = nil;
     switch (vCfg.sizeType) {
         case VSIZE_SZ_360: {
-            result = @"640*360";
+            result = @"360*360";
             break;
         }
         case VSIZE_SZ_480: {
-            result = @"848*480";
+            result = @"480*480";
             break;
         }
         case VSIZE_SZ_720: {
-            result = @"1280*720";
+            result = @"720*720";
             break;
         }
         default: {
@@ -136,11 +136,11 @@
 + (VIDEO_SIZE_TYPE)getRatioFromString:(NSString *)ratioStr {
     VIDEO_SIZE_TYPE result = VSIZE_SZ_128;
     
-    if ([ratioStr isEqualToString:@"640*360"]) {
+    if ([ratioStr isEqualToString:@"360*360"]) {
         result = VSIZE_SZ_360;
-    } else if ([ratioStr isEqualToString:@"848*480"]) {
+    } else if ([ratioStr isEqualToString:@"480*480"]) {
         result = VSIZE_SZ_480;
-    } else if ([ratioStr isEqualToString:@"1280*720"]) {
+    } else if ([ratioStr isEqualToString:@"720*720"]) {
         result = VSIZE_SZ_720;
     }
     

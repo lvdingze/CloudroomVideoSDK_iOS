@@ -776,6 +776,9 @@ typedef NS_ENUM(NSInteger, ConversationSwitchType)
     else {
         [_selfMicSwitch setOn:NO];
     }
+    
+    BOOL isShow = (status == AOPEN || status == AOPENING);
+    [_selfMicImageView setHidden:!isShow];
 }
 
 /**

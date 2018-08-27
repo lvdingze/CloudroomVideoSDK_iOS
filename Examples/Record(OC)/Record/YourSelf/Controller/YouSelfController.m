@@ -91,6 +91,8 @@ typedef NS_ENUM(NSInteger, YouSelfState)
 {
     [super viewDidLoad];
     [self _setupForYourself];
+    //设置视频是否支持拖动
+//    [self.myView setUserInteractionEnabled:false];
 }
 
 - (void)viewWillAppear:(BOOL)animated

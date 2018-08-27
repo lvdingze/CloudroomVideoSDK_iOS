@@ -404,7 +404,7 @@
     }];
     
     /* 分辨率 */
-    _ratioView.dataSource = @[@"640*360", @"848*480", @"1280*720"];
+    _ratioView.dataSource = @[@"360*360", @"480*480", @"720*720"];
     [_ratioView setResponse:^(MRatioView *view, UIButton *sender, NSString *value) {
         switch ([sender tag]) {
             case MRatioViewBtnTypeCancel: break;
@@ -522,7 +522,7 @@
     [self _subscribeCamera];
     [self _updateVideoInfo];
     
-    // 设置默认分辨率: 640*360
+    // 设置默认分辨率: 360*360
     [SDKUtil setRatio:VSIZE_SZ_360];
     // 设置默认帧率: 15
     [SDKUtil setFps:15];
