@@ -31,12 +31,19 @@
         NSLog(@"response:%@ error:%@", response, error);
         id result = [response objectForKey:@"result"];
         
-        if ([result isKindOfClass:[NSDictionary class]]) {
-            [self _handleResult:(NSDictionary *)result];
+        if([[response objectForKey:@"code"] intValue] == 1)
+        {
+            if ([result isKindOfClass:[NSDictionary class]]) {
+                [self _handleResult:(NSDictionary *)result];
+            }
+            
+            if (handler) {
+                handler(self.model, error);
+            }
         }
-        
-        if (handler) {
-            handler(self.model, error);
+        else{
+            [HUDUtil hudHiddenProgress:YES];
+            [HUDUtil hudShow:[response objectForKey:@"message"]  delay:2 animated:YES];
         }
     }];
 }

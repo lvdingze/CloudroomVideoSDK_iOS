@@ -65,7 +65,7 @@
         _manager.requestSerializer = [AFJSONRequestSerializer serializer];
         _manager.responseSerializer = [AFJSONResponseSerializer serializer];
         // https://www.jianshu.com/p/dbe3c5390b88
-        [_manager.requestSerializer setValue:@"23F95EB8743945EE6DF5814E1F0BCDAD" forHTTPHeaderField:@"X-Auth-Token"];
+        [_manager.requestSerializer setValue:@"368151983cb24fb0d6963f7d28e17d76" forHTTPHeaderField:@"X-Auth-Token"];
     }
     
     return _manager;

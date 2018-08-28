@@ -57,7 +57,7 @@
         
         NSData *imageData = [self.viewModel compressImage:scaleImage quality:0.5];
         UIImage *compressImage = [UIImage imageWithData:imageData];
-        [self _updateViewImage:compressImage];
+     
         NSString *imageStr = [self.viewModel stringFromDate:imageData];
         OCRView *view = (OCRView *)self.view;
         [imageData writeToFile:[PathUtil searchPathInCacheDir:(view.back && !view.front) ? @"CloudroomVideoSDK/back.png" : @"CloudroomVideoSDK/font.png"] atomically:YES];
@@ -67,9 +67,9 @@
             [HUDUtil hudShowProgress:nil animated:YES];
             [self.viewModel ocrRequest:info handler:^(OCRModel * _Nullable response, NSError * _Nullable error) {
                 NSLog(@"model:%@", response);
-                [self setModel:response];
                 [HUDUtil hudHiddenProgress:YES];
-                
+                [self _updateViewImage:compressImage];
+                [self setModel:response];
                 if (error) {
                     [HUDUtil hudShow:@"上传失败" delay:3 animated:YES];
                 }
@@ -87,7 +87,7 @@
 
 #pragma mark - private method
 - (void)_handleCamera {
-    [HUDUtil hudShow:@"请保持横屏拍照" delay:5 animated:YES];
+    [HUDUtil hudShow:@"请保持横屏拍照" delay:3 animated:YES];
     [self presentViewController:self.pickerController animated:YES completion:nil];
 }
 
