@@ -363,7 +363,7 @@
         NSString *cookie = [NSString stringWithFormat:@"%f", CFAbsoluteTimeGetCurrent()];
         [cloudroomVideoMeeting sendIMmsg:text toUserID:nil cookie:cookie];
     }];
-    [_chatView setTitle:[NSString stringWithFormat:@"会议ID:%d", _meetInfo.ID]];
+    [_chatView setTitle:[NSString stringWithFormat:@"会议号:%d", _meetInfo.ID]];
     
     _curCameraIndex = 0;
     

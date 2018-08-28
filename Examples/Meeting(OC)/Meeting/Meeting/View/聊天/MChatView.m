@@ -198,7 +198,7 @@
 
     UITextField *inputTextField = [[UITextField alloc] init];
     inputTextField.borderStyle = UITextBorderStyleNone;
-    inputTextField.placeholder = @"跟支持人聊点什么？";
+    inputTextField.placeholder = @"跟主持人聊点什么？";
     inputTextField.returnKeyType = UIReturnKeySend;
     inputTextField.delegate = self;
     [bottomView addSubview:inputTextField];

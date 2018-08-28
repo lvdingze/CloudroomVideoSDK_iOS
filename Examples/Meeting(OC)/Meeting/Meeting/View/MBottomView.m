@@ -75,16 +75,16 @@
 
 #pragma mark - private method
 - (void)_commonSetup {
-    [_micBtn setImage:[UIImage imageNamed:@"meeting_mic_close"] forState:UIControlStateNormal];
-    [_micBtn setImage:[UIImage imageNamed:@"meeting_mic_open"] forState:UIControlStateSelected];
+    [_micBtn setImage:[UIImage imageNamed:@"meeting_mic_close"] forState:UIControlStateSelected];
+    [_micBtn setImage:[UIImage imageNamed:@"meeting_mic_open"] forState:UIControlStateNormal];
     [_micBtn setTitle:@"关闭麦克风" forState:UIControlStateNormal];
     [_micBtn setTitle:@"打开麦克风" forState:UIControlStateSelected];
     [_micBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_micBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [_micBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
     
-    [_cameraBtn setImage:[UIImage imageNamed:@"meeting_camera_close"] forState:UIControlStateNormal];
-    [_cameraBtn setImage:[UIImage imageNamed:@"meeting_camera_open"] forState:UIControlStateSelected];
+    [_cameraBtn setImage:[UIImage imageNamed:@"meeting_camera_close"] forState:UIControlStateSelected];
+    [_cameraBtn setImage:[UIImage imageNamed:@"meeting_camera_open"] forState:UIControlStateNormal];
     [_cameraBtn setTitle:@"关闭摄像头" forState:UIControlStateNormal];
     [_cameraBtn setTitle:@"打开摄像头" forState:UIControlStateSelected];
     [_cameraBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
