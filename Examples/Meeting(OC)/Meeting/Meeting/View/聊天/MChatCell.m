@@ -39,7 +39,6 @@
 #pragma mark - public method
 - (CGFloat)heightForModel:(MChatModel *)model {
     self.model = model;
-    
     return [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }
 
@@ -49,7 +48,7 @@
     
     NSMutableAttributedString *comp = [[NSMutableAttributedString alloc] init];
     NSAttributedString *name = [[NSAttributedString alloc] initWithString:model.name attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: UIColorFromRGBA(57, 171, 251, 1.0)}];
-    NSAttributedString *c = [[NSAttributedString alloc] initWithString:@"：" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    NSAttributedString *c = [[NSAttributedString alloc] initWithString:@":" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor]}];
     NSAttributedString *content = [[NSAttributedString alloc] initWithString:model.content attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor whiteColor]}];
     
     [comp appendAttributedString:name];
@@ -61,33 +60,22 @@
 
 #pragma mark - private method
 - (void)_commonSetup {
-    UIImageView *placeImageView  =[[UIImageView alloc] init];
-    [placeImageView setImage:[UIImage imageNamed:@"chat_place_holder_30"]];
-    [self.contentView addSubview:placeImageView];
-    [placeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(8);
-        make.width.equalTo(self.contentView).multipliedBy(0.5).offset(-16);
-        make.top.equalTo(self.contentView).offset(4);
-        make.bottom.equalTo(self.contentView).offset(-4);
-    }];
-    
     UILabel *contentLabel = [[UILabel alloc] init];
     contentLabel.font = [UIFont systemFontOfSize:14];
     contentLabel.textAlignment = NSTextAlignmentLeft;
     contentLabel.numberOfLines = 0;
-    contentLabel.backgroundColor = [UIColor clearColor];
+    contentLabel.backgroundColor = UIColorFromRGBA(0, 0, 0, 0.3);
+    contentLabel.layer.cornerRadius = 6;
+    contentLabel.layer.masksToBounds = YES;
     // FIXME: 必须设置,否则不能正确算高 (king 20180707)
     contentLabel.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width * 0.5 - 4 - 16;
-    [placeImageView addSubview:contentLabel];
+    [self.contentView addSubview:contentLabel];
     [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(placeImageView).offset(2);
-        make.left.equalTo(placeImageView).offset(2);
-        make.bottom.equalTo(placeImageView).offset(-2);
-        make.right.equalTo(placeImageView).offset(-2);
+        make.left.equalTo(self.contentView).offset(8);
+        make.top.equalTo(self.contentView).offset(4);
+        make.bottom.equalTo(self.contentView).offset(-4);
     }];
-    
     _contentLabel = contentLabel;
-    
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
 }

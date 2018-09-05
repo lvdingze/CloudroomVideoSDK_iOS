@@ -77,7 +77,6 @@
     if (model.cacheH == 0) {
         model.cacheH = [_tempCell heightForModel:model];
     }
-    
     return model.cacheH;
 }
 
@@ -198,7 +197,7 @@
 
     UITextField *inputTextField = [[UITextField alloc] init];
     inputTextField.borderStyle = UITextBorderStyleNone;
-    inputTextField.placeholder = @"跟主持人聊点什么？";
+    inputTextField.placeholder = @"聊点什么？";
     inputTextField.returnKeyType = UIReturnKeySend;
     inputTextField.delegate = self;
     [bottomView addSubview:inputTextField];
