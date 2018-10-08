@@ -33,7 +33,6 @@
         <!--PreMeetingController-->
         <scene sceneID="Q05-Ea-RGE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qC8-t2-m2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PreMeetingController" id="3cb-3q-8Up" userLabel="PreMeetingController" customClass="PreMeetingController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IRc-GJ-TMI"/>
@@ -173,6 +172,7 @@
                         <outlet property="versionLabel" destination="2wB-dv-sTg" id="x94-2C-4wc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qC8-t2-m2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-506.39999999999998" y="53.940886699507388"/>
         </scene>

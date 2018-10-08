@@ -60,7 +60,7 @@
     SdkInitDat *sdkInitData = [[SdkInitDat alloc] init];
     // TODO:必须指定日志文件路径,才能产生日志文件,并能够上传 added by king 201711061904
     [sdkInitData setSdkDatSavePath:[PathUtil searchPathInCacheDir:@"CloudroomVideoSDK"]];
-    [sdkInitData setShowSDKLogConsole:NO];
+    [sdkInitData setShowSDKLogConsole:YES];
     [sdkInitData setNoCall:YES];
     [sdkInitData setNoQueue:YES];
     [sdkInitData setNoMediaDatToSvr:NO];

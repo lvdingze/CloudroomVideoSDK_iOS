@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC3BC6D321527BFA00675A57 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3BC6D221527BFA00675A57 /* libiconv.tbd */; };
 		C21C3B221EE9757C00B834DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C21C3B211EE9757C00B834DF /* main.m */; };
 		C21C3B251EE9757C00B834DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C21C3B241EE9757C00B834DF /* AppDelegate.m */; };
 		C21C3B2D1EE9757C00B834DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C3B2C1EE9757C00B834DF /* Assets.xcassets */; };
@@ -26,7 +27,6 @@
 		C21C3BD01EE97B0B00B834DF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C21C3BCF1EE97B0B00B834DF /* libz.tbd */; };
 		C21C3BD51EE97BD100B834DF /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C21C3BD41EE97BD100B834DF /* LoginController.m */; };
 		C21C3BD71EE97BE500B834DF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21C3BD61EE97BE500B834DF /* Login.storyboard */; };
-		C22068631F6BB8BE009770F5 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C29834C11EF906BE00FCA274 /* libstdc++.tbd */; };
 		C2269F7120D3C896007F00CE /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2269F6F20D3C895007F00CE /* UIImage+Rotate.m */; };
 		C2285E7F1EEA3D76003BB636 /* RecordHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C2285E7E1EEA3D76003BB636 /* RecordHelper.m */; };
 		C2285E881EEA3EB0003BB636 /* QueueCallBack.m in Sources */ = {isa = PBXBuildFile; fileRef = C2285E831EEA3EB0003BB636 /* QueueCallBack.m */; };
@@ -180,6 +180,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC3BC6D221527BFA00675A57 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		C21C3B1D1EE9757C00B834DF /* Record.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Record.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21C3B211EE9757C00B834DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C21C3B231EE9757C00B834DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -459,10 +460,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C22068631F6BB8BE009770F5 /* libstdc++.tbd in Frameworks */,
 				C21C3BD01EE97B0B00B834DF /* libz.tbd in Frameworks */,
 				C21C3BCE1EE97AFE00B834DF /* libbz2.tbd in Frameworks */,
 				C21C3BCA1EE97AC900B834DF /* AudioToolbox.framework in Frameworks */,
+				BC3BC6D321527BFA00675A57 /* libiconv.tbd in Frameworks */,
 				C21C3BC81EE97ABF00B834DF /* AVFoundation.framework in Frameworks */,
 				C21C3BC41EE97AAE00B834DF /* ExternalAccessory.framework in Frameworks */,
 				C21C3BBE1EE97A9100B834DF /* MobileCoreServices.framework in Frameworks */,
@@ -661,6 +662,7 @@
 		C21C3BB61EE97A6E00B834DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC3BC6D221527BFA00675A57 /* libiconv.tbd */,
 				C29A669120297E8400CB10B1 /* CloudroomVideoSDK_IOS.framework */,
 				C29834C11EF906BE00FCA274 /* libstdc++.tbd */,
 				C21C3BCF1EE97B0B00B834DF /* libz.tbd */,

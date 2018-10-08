@@ -61,7 +61,7 @@
 @property (nonatomic, assign) NSInteger curCameraIndex; /**< 当前摄像头索引 */
 @property (nonatomic, strong) UIAlertController *dropVC; /**< 掉线弹框 */
 @property (nonatomic, assign) BOOL enableMark; /**< 标注? */
-
+@property (nonatomic, assign) int devID;
 @end
 
 @implementation MeetingController
@@ -441,9 +441,14 @@
  */
 - (void)_setupForCamera {
     CloudroomVideoMeeting *cloudroomVideoMeeting = [CloudroomVideoMeeting shareInstance];
+
+    //创建自定义摄像头
+    int camID =  [cloudroomVideoMeeting createCustomVideoDev:@"customCam" pixFmt:VFMT_RGBA32 width:375*2.88  height:812*2.88 extParams:@""];
+    _devID = camID;
+    
     NSString *myUserID = [cloudroomVideoMeeting getMyUserID];
     short curVideoID = [cloudroomVideoMeeting getDefaultVideo:myUserID];
-    NSMutableArray <UsrVideoInfo *> *videoes = [cloudroomVideoMeeting getAllVideoInfo:myUserID];
+     NSMutableArray <UsrVideoInfo *> *videoes = [cloudroomVideoMeeting getAllVideoInfo:myUserID];
     NSArray<UsrVideoInfo *> *cameraArray = [videoes copy];
     
     for (UsrVideoInfo *video in videoes) {
@@ -451,7 +456,9 @@
         
         if (curVideoID == 0) { // 没有默认设备
             curVideoID = video.videoID;
-            [cloudroomVideoMeeting setDefaultVideo:myUserID videoID:curVideoID];
+           [cloudroomVideoMeeting setDefaultVideo:myUserID videoID:curVideoID];
+            
+    
         }
     }
     
@@ -530,8 +537,6 @@
     [SDKUtil setPriority:25 min:22];
     // 设置默认宽高比
     [SDKUtil setLocalCameraWHRate:WHRATE_1_1];
-    // 白板测试
-    // [self _boardTest];
 }
 
 /**
@@ -698,7 +703,7 @@
     }
     
     if (_curCameraIndex == 0) {
-        _curCameraIndex = 1;
+        _curCameraIndex = 2;
     } else {
         _curCameraIndex = 0;
     }
@@ -788,4 +793,79 @@
     // 关闭白板
     [cloudroomVideoMeeting closeBoard:subPage];
 }
+
+//-(void)customCam{
+//    
+//    // 创建NSTimer对象
+//    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
+//    // 加入RunLoop中
+//    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+//    
+//}
+//
+//- (void)timerAction:(NSTimer *)sender {
+// 
+//    CloudroomVideoMeeting *cloudroomVideoMeeting = [CloudroomVideoMeeting shareInstance];
+//    
+//    NSData *data = [self _imageWithView:self.view];
+//    [cloudroomVideoMeeting inputCustomVideoDat:_devID data:data timeStamp:2];
+//}
+//
+//- (NSData *)_imageWithView:(UIView *)view
+//{
+//    CGSize size = view.bounds.size;
+//    UIGraphicsBeginImageContextWithOptions(size, NO, 2.88);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
+//    [view.layer renderInContext:context];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    CGImageRef imageRef = image.CGImage;
+//    NSUInteger imageW = CGImageGetWidth(imageRef);
+//    NSUInteger imageH = CGImageGetHeight(imageRef);
+//    NSUInteger bytesPerPixel = 4;
+//    NSUInteger bytesPerRow = bytesPerPixel * imageW;
+//    NSUInteger bitsPerComponent = 8;
+//    size_t imageBytes = imageW * imageH * bytesPerPixel;
+//    unsigned char *imageBuf = malloc(imageBytes);
+//    
+//    NSLog(@"width:%lu height:%ld",(unsigned long)imageW,imageH);
+//
+//    {
+//        CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+//
+//        CGContextRef context = CGBitmapContextCreate(imageBuf,
+//                                                     imageW,
+//                                                     imageH,
+//                                                     bitsPerComponent,
+//                                                     bytesPerRow,
+//                                                     space,
+//                                                     kCGImageAlphaPremultipliedLast); // RGBA
+//
+//        CGRect rect = CGRectMake(0, 0, imageW, imageH);
+//        CGContextDrawImage(context, rect, imageRef);
+//        CGColorSpaceRelease(space);
+//        CGContextRelease(context);
+//    }
+//    //NSLog(@"data size:%zu", imageBytes);
+//    NSData* data = [NSData dataWithBytes:imageBuf length:imageBytes];
+//    free(imageBuf);
+//    return data;
+////    return UIImagePNGRepresentation(image);
+//}
+//
+//-(BOOL)saveImage:(UIImage*)image ToDocmentWithFileName:(NSString*)fileName{
+//    
+//    //2.保存到对应的沙盒目录中，具体代码如下：
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+//    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
+//    // 保存文件的名称 CGSize size = CGSizeMake(320, 480);
+//    //图片大小 UIImage* img = [Util scaleToSize:image size:size];//调用图片大小截取方法
+//    BOOL result = [UIImagePNGRepresentation(image) writeToFile: filePath atomically:YES];
+//    // 保存成功会返回YES
+//    if (result) { return YES; }else{ return NO; }
+//    
+//}
+ 
 @end

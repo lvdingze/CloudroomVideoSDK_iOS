@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet PMBottomView *bottomView;
 @property (nonatomic, assign) BOOL createMeeting;
 @property (nonatomic, copy) NSString *meetingID;
+@property (weak, nonatomic) IBOutlet UILabel *versionLab;
 
 @end
 
@@ -92,6 +93,9 @@
     [self _setupProperty];
     // 设置代理
     [self _updateDelegate];
+    
+    // SDK版本号
+    [_versionLab setText:[NSString stringWithFormat:@"SDK版本号:%@",[CloudroomVideoSDK getCloudroomVideoSDKVer]]];
 }
 
 /* 设置属性 */

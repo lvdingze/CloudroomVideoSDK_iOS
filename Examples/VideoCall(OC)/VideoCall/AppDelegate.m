@@ -25,7 +25,9 @@
 #import <CloudroomVideoSDK_IOS/CloudroomVideoSDK_IOS.h>
 
 @interface AppDelegate ()
-
+@property (nonatomic,assign) UIBackgroundTaskIdentifier backgroundTask;
+@property (nonatomic,assign) BOOL backgroundTimeOut;
+@property(nonatomic,strong)NSTimer *resetTimer;
 @end
 
 @implementation AppDelegate
@@ -41,25 +43,48 @@
 // 失去焦点
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    VCLog(@"");
+    VCLog(@"applicationWillResignActive");
+    self.backgroundTimeOut = NO;
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithName:@"VideoCall" expirationHandler:^{
+        self.backgroundTimeOut = YES;
+        VCLog(@"applicationWillResignActive backgroundTimeOut");
+        if(self.backgroundTask != UIBackgroundTaskInvalid) {
+            [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        }
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
 }
 
 // 进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    VCLog(@"");
+    VCLog(@"applicationDidEnterBackground");
 }
 
 // 进入前台
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    VCLog(@"");
+    VCLog(@"applicationWillEnterForeground");
+    if(self.backgroundTask != UIBackgroundTaskInvalid) {
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+    }
+    self.backgroundTask = UIBackgroundTaskInvalid;
 }
 
 // 获取焦点
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    VCLog(@"");
+    VCLog(@"applicationDidBecomeActive");
+    [self.resetTimer invalidate];
+    if(self.backgroundTimeOut) {
+        self.resetTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector: @selector(resetConnect) userInfo:nil repeats:false];
+    }
+}
+
+-(void)resetConnect
+{
+    NSLog(@"resetConnect");
+    
 }
 
 // 退出程序
@@ -99,7 +124,7 @@
     // FIXME:WARNING: QApplication was not created in the main() thread.QObject::connect: No such slot MeetRecordImpl::slot_SetScreenShare(bool)
     SdkInitDat *sdkInitData = [[SdkInitDat alloc] init];
     [sdkInitData setSdkDatSavePath:[PathUtil searchPathInCacheDir:@"CloudroomVideoSDK"]];
-    [sdkInitData setShowSDKLogConsole:NO];
+    [sdkInitData setShowSDKLogConsole:YES];
     [sdkInitData setNoCall:NO];
     [sdkInitData setNoQueue:NO];
     [sdkInitData setNoMediaDatToSvr:NO];

@@ -74,7 +74,7 @@
     // 设置 SDK 内部使用的文件位置
     [sdkInitData setSdkDatSavePath:[PathUtil searchPathInCacheDir:@"CloudroomVideoSDK"]];
     // 是否在控制台显示 SDK 日志
-    [sdkInitData setShowSDKLogConsole:NO];
+    [sdkInitData setShowSDKLogConsole:YES];
     [sdkInitData setNoCall:NO];
     [sdkInitData setNoQueue:NO];
     [sdkInitData setNoMediaDatToSvr:NO];

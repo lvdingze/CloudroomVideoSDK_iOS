@@ -119,6 +119,12 @@
                                             <action selector="clickBtnForPMBottomView:" destination="5PE-ep-Su7" eventType="touchUpInside" id="AbT-TH-0XL"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJ4-Gf-51O" userLabel="versionLab">
+                                        <rect key="frame" x="139" y="418" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.22352941176470587" green="0.6705882352941176" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -129,10 +135,12 @@
                                     <constraint firstItem="FWd-Pt-cpg" firstAttribute="centerX" secondItem="5PE-ep-Su7" secondAttribute="centerX" id="6xa-m6-Ayf"/>
                                     <constraint firstAttribute="trailing" secondItem="ptI-sA-eho" secondAttribute="trailing" constant="32" id="7h2-ng-jl1"/>
                                     <constraint firstAttribute="trailing" secondItem="brM-xp-fcm" secondAttribute="trailing" constant="64" id="86X-sk-1bA"/>
+                                    <constraint firstItem="UJ4-Gf-51O" firstAttribute="top" secondItem="tGC-PH-Z2M" secondAttribute="bottom" constant="25" id="8AR-97-wOm"/>
                                     <constraint firstItem="yO8-ir-5yp" firstAttribute="leading" secondItem="ptI-sA-eho" secondAttribute="leading" id="8ZG-9e-tyQ"/>
                                     <constraint firstItem="tGC-PH-Z2M" firstAttribute="height" secondItem="yO8-ir-5yp" secondAttribute="height" id="GS5-HB-Zzh"/>
                                     <constraint firstItem="FWd-Pt-cpg" firstAttribute="centerY" secondItem="brM-xp-fcm" secondAttribute="centerY" id="JOK-XD-pyV"/>
                                     <constraint firstItem="vZ8-Ml-jKf" firstAttribute="leading" secondItem="5PE-ep-Su7" secondAttribute="leading" constant="32" id="RDo-Qi-k86"/>
+                                    <constraint firstItem="UJ4-Gf-51O" firstAttribute="centerX" secondItem="5PE-ep-Su7" secondAttribute="centerX" id="SGj-vd-CaP"/>
                                     <constraint firstItem="brM-xp-fcm" firstAttribute="leading" secondItem="5PE-ep-Su7" secondAttribute="leading" constant="64" id="W90-iH-ZTc"/>
                                     <constraint firstItem="tGC-PH-Z2M" firstAttribute="top" secondItem="FWd-Pt-cpg" secondAttribute="bottom" constant="36" id="bkF-5m-O7U"/>
                                     <constraint firstItem="ptI-sA-eho" firstAttribute="leading" secondItem="5PE-ep-Su7" secondAttribute="leading" constant="32" id="ebK-F5-VDU"/>
@@ -171,6 +179,7 @@
                     <connections>
                         <outlet property="bottomView" destination="5PE-ep-Su7" id="4un-8d-l60"/>
                         <outlet property="topView" destination="w3s-51-Kd3" id="Ubq-7p-gRd"/>
+                        <outlet property="versionLab" destination="UJ4-Gf-51O" id="S3u-hp-WKs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qC8-t2-m2i" userLabel="First Responder" sceneMemberID="firstResponder"/>

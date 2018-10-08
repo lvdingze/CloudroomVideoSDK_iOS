@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BC1E760F21100D9A002A9798 /* BKShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1E760E21100D9A002A9798 /* BKShapeLayer.m */; };
 		BC1E7614211059A1002A9798 /* MBProgressHUD+MF.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1E7613211059A1002A9798 /* MBProgressHUD+MF.m */; };
+		BC3BC6D721527CD800675A57 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3BC6D621527CD800675A57 /* libiconv.tbd */; };
 		BC488B4A21192248007827BF /* WhiteBoardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC488B4921192248007827BF /* WhiteBoardModel.m */; };
 		BC6379E3210ECBED009EBD01 /* BKBrushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6379E2210ECBED009EBD01 /* BKBrushButton.m */; };
 		C20079E32105755C0026E14F /* CloudroomVideoSDK_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20079E22105755C0026E14F /* CloudroomVideoSDK_IOS.framework */; };
@@ -76,7 +77,6 @@
 		C2B33F9320EE02A600995238 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B33F8920EE02A600995238 /* MASViewConstraint.m */; };
 		C2B33F9420EE02A600995238 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B33F8A20EE02A600995238 /* MASViewAttribute.m */; };
 		C2CD164B1FBAC349001007A4 /* MeetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CD164A1FBAC349001007A4 /* MeetingController.m */; };
-		C2D00E681F7E476D00073C61 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D00E671F7E476D00073C61 /* libstdc++.tbd */; };
 		C2E06B7A1E4C8C14000D8718 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E06B791E4C8C14000D8718 /* main.m */; };
 		C2E06B7D1E4C8C14000D8718 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E06B7C1E4C8C14000D8718 /* AppDelegate.m */; };
 		C2E06B851E4C8C14000D8718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2E06B841E4C8C14000D8718 /* Assets.xcassets */; };
@@ -123,6 +123,7 @@
 		BC1E760E21100D9A002A9798 /* BKShapeLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKShapeLayer.m; sourceTree = "<group>"; };
 		BC1E7612211059A1002A9798 /* MBProgressHUD+MF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MF.h"; sourceTree = "<group>"; };
 		BC1E7613211059A1002A9798 /* MBProgressHUD+MF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MF.m"; sourceTree = "<group>"; };
+		BC3BC6D621527CD800675A57 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		BC488B4821192248007827BF /* WhiteBoardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhiteBoardModel.h; sourceTree = "<group>"; };
 		BC488B4921192248007827BF /* WhiteBoardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhiteBoardModel.m; sourceTree = "<group>"; };
 		BC6379E1210ECBED009EBD01 /* BKBrushButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKBrushButton.h; sourceTree = "<group>"; };
@@ -278,7 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D00E681F7E476D00073C61 /* libstdc++.tbd in Frameworks */,
+				BC3BC6D721527CD800675A57 /* libiconv.tbd in Frameworks */,
 				C217703D1E4D6B6000B79F5C /* libbz2.tbd in Frameworks */,
 				C217703B1E4D6B3F00B79F5C /* libz.tbd in Frameworks */,
 				C21770371E4D6B1D00B79F5C /* SystemConfiguration.framework in Frameworks */,
@@ -486,6 +487,7 @@
 		C21770231E4D6ACA00B79F5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC3BC6D621527CD800675A57 /* libiconv.tbd */,
 				C2D00E671F7E476D00073C61 /* libstdc++.tbd */,
 				C217703C1E4D6B6000B79F5C /* libbz2.tbd */,
 				C217703A1E4D6B3F00B79F5C /* libz.tbd */,
@@ -766,8 +768,8 @@
 				TargetAttributes = {
 					C2E06B741E4C8C14000D8718 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 93XFE92JTW;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = CQEV6JSQ55;
+						ProvisioningStyle = Automatic;
 					};
 					C2E06B8D1E4C8C14000D8718 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1055,8 +1057,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 93XFE92JTW;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQEV6JSQ55;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Framework/";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1068,10 +1070,10 @@
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cloudroom.CRWBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudroom.WBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6e1f4337-0784-4bd6-8831-8c36b5c9f795";
-				PROVISIONING_PROFILE_SPECIFIER = "cloudroom-com-debug";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
@@ -1081,9 +1083,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 93XFE92JTW;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQEV6JSQ55;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Framework/";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1094,10 +1096,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cloudroom.CRWBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudroom.WBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5869790c-0fb9-49f0-94ba-31ecb44962a7";
-				PROVISIONING_PROFILE_SPECIFIER = "com-cloudroom-release";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;

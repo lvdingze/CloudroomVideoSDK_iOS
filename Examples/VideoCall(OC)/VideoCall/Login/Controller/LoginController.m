@@ -146,8 +146,8 @@ typedef NS_ENUM(NSInteger, LoginBtnType)
         [_serverBtn setSelected:YES];
     }
     
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"];
-    [_versionLabel setText:version];
+    // SDK版本号
+    [_versionLabel setText:[NSString stringWithFormat:@"SDK版本号:%@",[CloudroomVideoSDK getCloudroomVideoSDKVer]]];
     
     UIColor *color = [UIColor colorWithRed:77/255.0 green:94/255.0 blue:117/255.0 alpha:1.0];
     [_nicknameTextField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"请输入昵称" attributes:@{NSForegroundColorAttributeName: color}]];

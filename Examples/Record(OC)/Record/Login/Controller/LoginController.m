@@ -132,9 +132,8 @@ typedef NS_ENUM(NSInteger, LoginBtnType)
  */
 - (void)_setupForProperies
 {
-    // 应用版本号
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleShortVersionString"];
-    [_versionLabel setText:version];
+    // SDK版本号
+    [_versionLabel setText:[NSString stringWithFormat:@"SDK版本号:%@",[CloudroomVideoSDK getCloudroomVideoSDKVer]]];
     
     // 设置边框
     [_nicknameView.layer setCornerRadius:22];

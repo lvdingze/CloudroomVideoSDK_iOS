@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC3BC6D521527C7700675A57 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BC3BC6D421527C7700675A57 /* libiconv.tbd */; };
 		C208BC271EE9266C0043159D /* CallHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C208BC261EE9266C0043159D /* CallHelper.m */; };
 		C21C3FB61E0B835F007EEEE0 /* ShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = C21C3FB31E0B835F007EEEE0 /* ShareController.m */; };
 		C21C3FB71E0B835F007EEEE0 /* Share.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C21C3FB51E0B835F007EEEE0 /* Share.storyboard */; };
@@ -68,7 +69,6 @@
 		C2C251181DF1105000D552DB /* ServiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C251171DF1105000D552DB /* ServiceModel.m */; };
 		C2D00E6A1F7E485B00073C61 /* CloudroomVideoSDK_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D00E691F7E485B00073C61 /* CloudroomVideoSDK_IOS.framework */; };
 		C2D00E6C1F7E488F00073C61 /* CloudroomVideoSDK_IOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2D00E691F7E485B00073C61 /* CloudroomVideoSDK_IOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C2D00E6E1F7E493D00073C61 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C2AE25921DEEADE500F59D6F /* libstdc++.tbd */; };
 		C2FA8BBF1ECBF92C0049CB06 /* RotationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FA8BBC1ECBF92C0049CB06 /* RotationUtil.m */; };
 		C2FA8BC01ECBF92C0049CB06 /* TimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FA8BBE1ECBF92C0049CB06 /* TimeUtil.m */; };
 		C2FC74901DE58C4400B4D058 /* ConversationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FC748F1DE58C4400B4D058 /* ConversationController.m */; };
@@ -107,6 +107,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC3BC6D421527C7700675A57 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		C208BC251EE9266C0043159D /* CallHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallHelper.h; sourceTree = "<group>"; };
 		C208BC261EE9266C0043159D /* CallHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallHelper.m; sourceTree = "<group>"; };
 		C21C3FB21E0B835F007EEEE0 /* ShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareController.h; sourceTree = "<group>"; };
@@ -231,7 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D00E6E1F7E493D00073C61 /* libstdc++.tbd in Frameworks */,
+				BC3BC6D521527C7700675A57 /* libiconv.tbd in Frameworks */,
 				C2AE26361DEEB5F500F59D6F /* libz.tbd in Frameworks */,
 				C2AE259D1DEEAF0400F59D6F /* libbz2.tbd in Frameworks */,
 				C2D00E6A1F7E485B00073C61 /* CloudroomVideoSDK_IOS.framework in Frameworks */,
@@ -639,6 +640,7 @@
 		C2AE25911DEEADE500F59D6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC3BC6D421527C7700675A57 /* libiconv.tbd */,
 				C2AE26351DEEB5F500F59D6F /* libz.tbd */,
 				C2AE259C1DEEAF0400F59D6F /* libbz2.tbd */,
 				C2AE25921DEEADE500F59D6F /* libstdc++.tbd */,
@@ -796,8 +798,13 @@
 				TargetAttributes = {
 					C24A32621DE2D8400038D9B1 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 93XFE92JTW;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = CQEV6JSQ55;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					C24A327B1DE2D8400038D9B1 = {
 						CreatedOnToolsVersion = 8.1;
@@ -1063,8 +1070,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 93XFE92JTW;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQEV6JSQ55;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Framework";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1074,10 +1081,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cloudroom.CRVideoCall;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudroom.VideoCall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6e1f4337-0784-4bd6-8831-8c36b5c9f795";
-				PROVISIONING_PROFILE_SPECIFIER = "cloudroom-com-debug";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1086,10 +1093,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 93XFE92JTW;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CQEV6JSQ55;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../../Framework";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1099,10 +1106,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cloudroom.CRVideoCall;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudroom.VideoCall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5869790c-0fb9-49f0-94ba-31ecb44962a7";
-				PROVISIONING_PROFILE_SPECIFIER = "com-cloudroom-release";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
