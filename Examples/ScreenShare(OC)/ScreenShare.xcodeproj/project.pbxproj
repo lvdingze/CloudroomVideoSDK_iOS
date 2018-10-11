@@ -13,6 +13,10 @@
 		BC4C36EF2150AE7D00E51E25 /* RatioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4C36E92150AE7D00E51E25 /* RatioCell.m */; };
 		BC4C36F02150AE7D00E51E25 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4C36EA2150AE7D00E51E25 /* Record.storyboard */; };
 		BC4C36F12150AE7D00E51E25 /* RecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4C36EC2150AE7D00E51E25 /* RecordCell.m */; };
+		BCB2B969216F46F600CF0F6E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCB2B968216F46F600CF0F6E /* Images.xcassets */; };
+		BCB2B96B216F486B00CF0F6E /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB2B96A216F486A00CF0F6E /* launch.png */; };
+		BCB2B96D216F48A800CF0F6E /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB2B96C216F48A700CF0F6E /* launch.png */; };
+		BCED3701216CA1FB00EF0BDF /* TestScreenShareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCED3700216CA1FB00EF0BDF /* TestScreenShareTableViewController.m */; };
 		C21C3B221EE9757C00B834DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C21C3B211EE9757C00B834DF /* main.m */; };
 		C21C3B251EE9757C00B834DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C21C3B241EE9757C00B834DF /* AppDelegate.m */; };
 		C21C3B2D1EE9757C00B834DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21C3B2C1EE9757C00B834DF /* Assets.xcassets */; };
@@ -190,6 +194,11 @@
 		BC4C36EA2150AE7D00E51E25 /* Record.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
 		BC4C36EB2150AE7D00E51E25 /* RecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCell.h; sourceTree = "<group>"; };
 		BC4C36EC2150AE7D00E51E25 /* RecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCell.m; sourceTree = "<group>"; };
+		BCB2B968216F46F600CF0F6E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BCB2B96A216F486A00CF0F6E /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = SOURCE_ROOT; };
+		BCB2B96C216F48A700CF0F6E /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = SOURCE_ROOT; };
+		BCED36FF216CA1FB00EF0BDF /* TestScreenShareTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestScreenShareTableViewController.h; sourceTree = "<group>"; };
+		BCED3700216CA1FB00EF0BDF /* TestScreenShareTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestScreenShareTableViewController.m; sourceTree = "<group>"; };
 		C21C3B1D1EE9757C00B834DF /* ScreenShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21C3B211EE9757C00B834DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C21C3B231EE9757C00B834DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -565,8 +574,11 @@
 				C21C3B231EE9757C00B834DF /* AppDelegate.h */,
 				C21C3B241EE9757C00B834DF /* AppDelegate.m */,
 				C21C3B2C1EE9757C00B834DF /* Assets.xcassets */,
+				BCB2B96A216F486A00CF0F6E /* launch.png */,
 				C21C3B2E1EE9757C00B834DF /* LaunchScreen.storyboard */,
+				BCB2B96C216F48A700CF0F6E /* launch.png */,
 				C21C3B311EE9757C00B834DF /* Info.plist */,
+				BCB2B968216F46F600CF0F6E /* Images.xcassets */,
 				C21C3B201EE9757C00B834DF /* Supporting Files */,
 			);
 			path = ScreenShare;
@@ -1131,6 +1143,8 @@
 				C29011B41F4418F6009684B2 /* QueueController.m */,
 				C29011B51F4418F6009684B2 /* RemoteController.h */,
 				C29011B61F4418F6009684B2 /* RemoteController.m */,
+				BCED36FF216CA1FB00EF0BDF /* TestScreenShareTableViewController.h */,
+				BCED3700216CA1FB00EF0BDF /* TestScreenShareTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1282,7 +1296,7 @@
 				TargetAttributes = {
 					C21C3B1C1EE9757C00B834DF = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = CQEV6JSQ55;
+						DevelopmentTeam = 93XFE92JTW;
 						ProvisioningStyle = Manual;
 					};
 					C21C3B351EE9757C00B834DF = {
@@ -1326,9 +1340,12 @@
 				C28FB25B204CF26A000C677A /* JSQMessagesAssets.bundle in Resources */,
 				C21C3B301EE9757C00B834DF /* LaunchScreen.storyboard in Resources */,
 				C24A77591F4BBCE9009CE312 /* More.storyboard in Resources */,
+				BCB2B96D216F48A800CF0F6E /* launch.png in Resources */,
 				C28FB28A204D1238000C677A /* IQKeyboardManager.bundle in Resources */,
 				C28FB248204CF26A000C677A /* JSQMessagesViewController.xib in Resources */,
+				BCB2B969216F46F600CF0F6E /* Images.xcassets in Resources */,
 				C21C3B2D1EE9757C00B834DF /* Assets.xcassets in Resources */,
+				BCB2B96B216F486B00CF0F6E /* launch.png in Resources */,
 				C28FB24E204CF26A000C677A /* JSQMessagesTypingIndicatorFooterView.xib in Resources */,
 				C21C3BD71EE97BE500B834DF /* Login.storyboard in Resources */,
 				C28FB24C204CF26A000C677A /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
@@ -1405,6 +1422,7 @@
 				C22C21331F3AE9750067FE80 /* HUDUtil.m in Sources */,
 				C2285E8A1EEA3EB0003BB636 /* VideoMgrCallBack.m in Sources */,
 				C28FB28D204D1238000C677A /* IQUIWindow+Hierarchy.m in Sources */,
+				BCED3701216CA1FB00EF0BDF /* TestScreenShareTableViewController.m in Sources */,
 				C24FAC3620CA7309004C04C2 /* OCRModel.m in Sources */,
 				C28FB289204D1238000C677A /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				C21C3BB31EE9798900B834DF /* BaseController.m in Sources */,
@@ -1617,7 +1635,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1643,7 +1660,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;

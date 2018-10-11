@@ -1081,6 +1081,17 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIg-ev-qaB">
+                                <rect key="frame" x="234" y="190" width="125" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="QcL-Bb-WBE"/>
+                                    <constraint firstAttribute="height" constant="30" id="S1k-Qf-vsV"/>
+                                </constraints>
+                                <state key="normal" title="testScreenShare"/>
+                                <connections>
+                                    <action selector="testScreenshare:" destination="JLM-dJ-KnE" eventType="touchUpInside" id="Pe4-PF-w0H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1119,10 +1130,12 @@
                             <constraint firstItem="5gd-9w-yTD" firstAttribute="top" secondItem="wJS-wN-26O" secondAttribute="top" id="hDN-B8-5G9"/>
                             <constraint firstAttribute="trailing" secondItem="t8g-9U-P8O" secondAttribute="trailing" id="hTj-Gw-4ea"/>
                             <constraint firstAttribute="trailing" secondItem="t8g-9U-P8O" secondAttribute="trailing" id="k2X-ce-yAT"/>
+                            <constraint firstItem="qIg-ev-qaB" firstAttribute="trailing" secondItem="wJS-wN-26O" secondAttribute="trailingMargin" id="l4d-sw-WDP"/>
                             <constraint firstItem="Su3-Br-rWA" firstAttribute="centerY" secondItem="wJS-wN-26O" secondAttribute="centerY" id="n1g-zb-PUK"/>
                             <constraint firstItem="t8g-9U-P8O" firstAttribute="leading" secondItem="wJS-wN-26O" secondAttribute="leading" id="o8q-nM-bAj"/>
                             <constraint firstItem="M88-TA-DY3" firstAttribute="top" secondItem="wJS-wN-26O" secondAttribute="topMargin" id="oRS-5N-fej"/>
                             <constraint firstAttribute="trailing" secondItem="uVJ-wa-FyX" secondAttribute="trailing" id="pj5-4h-8d5"/>
+                            <constraint firstItem="Su3-Br-rWA" firstAttribute="top" secondItem="qIg-ev-qaB" secondAttribute="bottom" constant="8" id="rnu-9M-Vdn"/>
                             <constraint firstAttribute="trailing" secondItem="uVJ-wa-FyX" secondAttribute="trailing" id="uwt-Gf-JXx"/>
                             <constraint firstAttribute="trailing" secondItem="cBj-Ha-zNk" secondAttribute="trailing" id="vO3-6U-rvC"/>
                             <constraint firstItem="ubT-pl-8jU" firstAttribute="top" secondItem="SyW-sa-EBp" secondAttribute="bottom" id="vjd-p7-3zj"/>
@@ -1309,7 +1322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcx-Aj-e4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-103.52112676056338" y="-395.625"/>
+            <point key="canvasLocation" x="-104.8" y="-396.25187406296857"/>
         </scene>
         <!--YSProgressController-->
         <scene sceneID="QuB-MZ-AFA">
